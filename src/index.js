@@ -7,8 +7,6 @@ import GlobalStyles from "./styles";
 const client = new ApolloClient({
   uri: "https://liftoff-ms.herokuapp.com/",
   cache: new InMemoryCache(),
-  name: "web",
-  version: "1.0",
 });
 
 ReactDOM.render(

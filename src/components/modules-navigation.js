@@ -1,6 +1,6 @@
-import React from 'react';
 import styled from '@emotion/styled';
 import { Link } from '@reach/router';
+import React from 'react';
 import { colors, IconArrowRight, IconDoubleArrowRight } from '../styles';
 import { humanReadableTimeFromSeconds } from '../utils/helpers';
 
@@ -28,7 +28,7 @@ const ModulesNav = ({ module, track }) => {
                     <IconArrowRight width="14px" weight="thin" />
                   )}
                   <div>{navModule.title}</div>
-                  <div>{humanReadableTimeFromSeconds(navModule.length)}</div>
+                  <div>{humanReadableTimeFromSeconds(navModule.durationInSeconds)}</div>
                 </ModuleListItemContent>
               </ModuleNavStyledLink>
             </div>

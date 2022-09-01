@@ -1,5 +1,5 @@
+import { gql, useQuery } from '@apollo/client';
 import React from 'react';
-import { useQuery, gql } from '@apollo/client';
 import { Layout, ModuleDetail, QueryResult } from '../components';
 
 /**
@@ -20,7 +20,7 @@ const GET_MODULE_AND_PARENT_TRACK = gql`
       modules {
         id
         title
-        length
+        durationInSeconds
       }
     }
   }

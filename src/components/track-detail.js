@@ -1,25 +1,20 @@
-import React from 'react';
 import styled from '@emotion/styled';
+import { Link } from '@reach/router';
+import React from 'react';
 import {
-  colors,
-  Button,
-  IconRun,
-  IconView,
-  IconTime,
-  IconBook,
+  Button, colors, IconBook, IconRun, IconTime, IconView
 } from '../styles';
 import { humanReadableTimeFromSeconds } from '../utils/helpers';
-import { Link } from '@reach/router';
 import ContentSection from './content-section';
 import MarkDown from './md-content';
 
 /**
  * Track Detail component renders the main content of a given track:
- * author, length, number of views, modules list, among other things.
+ * author, durationInSeconds, number of views, modules list, among other things.
  * It provides access to the first module of the track.
  */
 const TrackDetail = ({ track }) => {
-  const { title, description, thumbnail, author, length, modulesCount, modules, numberOfViews } = track;
+  const { title, description, thumbnail, author, durationInSeconds, modulesCount, modules, numberOfViews } = track;
 
   return (
     <ContentSection>
@@ -41,7 +36,7 @@ const TrackDetail = ({ track }) => {
             </IconAndLabel>
             <IconAndLabel>
               <IconTime width="14px" />
-              <div>{humanReadableTimeFromSeconds(length)}</div>
+              <div>{humanReadableTimeFromSeconds(durationInSeconds)}</div>
             </IconAndLabel>
           </DetailItem>
           <DetailItem>
@@ -68,7 +63,7 @@ const TrackDetail = ({ track }) => {
               {modules.map((module) => (
                 <li key={module.title}>
                   <div>{module.title}</div>
-                  <ModuleLength>{humanReadableTimeFromSeconds(module.length)}</ModuleLength>
+                  <ModuleLength>{humanReadableTimeFromSeconds(module.durationInSeconds)}</ModuleLength>
                 </li>
               ))}
             </ul>
